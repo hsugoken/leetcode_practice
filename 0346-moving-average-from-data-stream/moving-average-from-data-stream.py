@@ -12,7 +12,8 @@ class MovingAverage:
         if self.count>self.size:
             self.count = self.size
         return sum(self.window)/self.count
-
+#TC: O(N)
+#SC: O(N)
         
 
 
