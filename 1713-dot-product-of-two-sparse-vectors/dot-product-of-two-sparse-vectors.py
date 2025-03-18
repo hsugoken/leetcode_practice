@@ -27,6 +27,8 @@ class SparseVector:
             else:
                 j+=1
         return res
+#TC: dotProduct: O(min(#non-zero elements in vec1 and vec2)) / O(N) __init__ => O(N)
+#SC: O(N)
 
             
 
