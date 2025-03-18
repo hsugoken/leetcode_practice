@@ -25,20 +25,19 @@ class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         stack = [root]
         total = 0
+        count = 0
         while stack:
-            curr = stack.pop()
-            if not curr:
-                continue
-            if curr.val<low:
-                stack.append(curr.right)
-            if curr.val>high:
-                stack.append(curr.left)
-            if low<=curr.val<=high:
-                stack.append(curr.left)
-                stack.append(curr.right)
-                total += curr.val
+            cur = stack.pop()
+            if cur:
+                if low<=cur.val<=high:
+                    total += cur.val
+                    count += 1
+                if cur.val>low:
+                    stack.append(cur.left)
+                if cur.val<high:
+                    stack.append(cur.right)
+        print(f"Total:{total}, Count:{count} Avg: {total/count}")
         return total
-
 
 #TC: O(N)
 #SC: O(N)
