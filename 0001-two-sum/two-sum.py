@@ -7,4 +7,6 @@ class Solution:
             if (target-num) in track:
                 return [track[target-num], i]
             track[num] = i
-        return 
+
+#TC: O(n)
+#SC: O(n)
