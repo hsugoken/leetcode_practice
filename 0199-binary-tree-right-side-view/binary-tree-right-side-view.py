@@ -30,5 +30,6 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
         return res
-
+#TC: O(N)
+#SC: O(N)
         
