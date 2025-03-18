@@ -1,3 +1,9 @@
+"""
+Edge Cases: 
+single character strings
+all non-alphanumeric = "!!!"
+m
+"""
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         #convert all uppercase into lowercase letters.
@@ -17,3 +23,5 @@ class Solution:
             left += 1
             right -= 1
         return True
+#TC: O(N)
+#SC: O(1)
