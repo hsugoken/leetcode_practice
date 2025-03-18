@@ -13,7 +13,8 @@ class Solution:
             else:
                 res.append(intervals[i])
         return res
-
+#TC: O(N+NlogN)
+#SC: O(N)
         
 
         
