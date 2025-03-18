@@ -20,3 +20,6 @@ class Solution:
                 dfs(node.left)
         dfs(root)
         return self.total
+
+#TC: O(N)
+#SC: O(N)
