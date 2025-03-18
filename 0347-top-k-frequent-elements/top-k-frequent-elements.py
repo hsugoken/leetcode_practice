@@ -19,7 +19,8 @@ class Solution:
                     return res
         
 
-
+#TC: O(N)
+#SC: O(N)
         
 
 
