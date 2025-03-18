@@ -29,7 +29,12 @@ class SparseVector:
         return res
 #TC: dotProduct: O(min(#non-zero elements in vec1 and vec2)) / O(N) __init__ => O(N)
 #SC: O(N)
+#Let n be the length of input array and L and L2 be the number of non-zero 
+#elements for the two vectors
+#TC: O(n) for creating the <index, value> pair for non-zero values and 
+#O(L+L2) for calculating the dot product
 
+#SC: O(L) for <index,value> pairs and O(1) for dot product
             
 
 # Your SparseVector object will be instantiated and called as such:
