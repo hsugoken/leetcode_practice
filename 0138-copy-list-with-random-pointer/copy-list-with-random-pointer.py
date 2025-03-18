@@ -35,6 +35,8 @@ class Solution:
             cur = cur.next
 
         return copy_map[head]
+#TC: O(N) 2 pass
+#SC: O(N) for storing copy_map
 
 
 
