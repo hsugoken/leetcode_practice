@@ -48,4 +48,5 @@ class Solution:
         else:
             return False
 
-        
+#TC: O(N)
+#SC: O(1)
