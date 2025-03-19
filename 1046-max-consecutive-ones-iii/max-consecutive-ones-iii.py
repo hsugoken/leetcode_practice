@@ -1,13 +1,13 @@
 class Solution:
     def longestOnes(self, nums: List[int], k: int) -> int:
-        #|
+        #          |
         #1,1,1,0,0,1,0,0,0 
-        #    ^
-        
-        #r=2
-        #nums[r] = 1
-        #l=0
-        #max_len=3
+        #              ^
+        #l=5
+        #r=8
+        #k=0
+        #nums[r] = 0
+        #max_len=6
         
         max_len = float('-inf')#
         l = 0
@@ -19,7 +19,7 @@ class Solution:
                     k += 1
                 l += 1
             #k=0
-            max_len = max(max_len, r-l+1) 
+            max_len = max(max_len, r-l+1)  #4<6
         return max_len
 
 
