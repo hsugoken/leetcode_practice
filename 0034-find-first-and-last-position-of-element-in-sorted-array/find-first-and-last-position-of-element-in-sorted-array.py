@@ -20,3 +20,5 @@ class Solution:
         left_pos = binary_search(find_left=True)
         right_pos = binary_search(find_left=False)
         return [left_pos, right_pos]
+#TC: O(log N)
+#SC: O(1)
