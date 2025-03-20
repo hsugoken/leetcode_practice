@@ -12,3 +12,5 @@ class Solution:
                 heapq.heappushpop(heap, [cur_dist, p[0],p[1]])
         # print(heap)
         return [[x[1],x[2]] for x in heap]
+#TC: O(NlogK)
+#SC: O(K)
