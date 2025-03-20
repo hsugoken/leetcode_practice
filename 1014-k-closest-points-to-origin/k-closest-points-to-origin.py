@@ -2,28 +2,13 @@ class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         def dist(x):
             return x[0]**2+x[1]**2
-        nums = [[dist(p), p] for p in points]
-        def quickselect(l,r):
-            if l>=r:
-                return
-            pivot = nums[r][0]
-            p = l
-            for i in range(l,r):
-                if nums[i][0]<=pivot:
-                    nums[i], nums[p] = nums[p], nums[i]
-                    p+=1
-            nums[p], nums[r] = nums[r], nums[p]
-            if p<k-1:
-                quickselect(p+1, r)
-            elif p>k-1:
-                quickselect(l,p-1)
-            else:
-                return
-        quickselect(0, len(nums)-1)
-        return [p[1:][0] for p in nums[:k]]
-
-
-        
-        
-
-
+        heap = []
+        for p in points[:k]:
+            heap.append([-dist(p),p[0],p[1]])
+        heapq.heapify(heap)
+        for p in points[k:]:
+            cur_dist = -dist(p)
+            if heap[0][0]<cur_dist:
+                heapq.heappushpop(heap, [cur_dist, p[0],p[1]])
+        # print(heap)
+        return [[x[1],x[2]] for x in heap]
