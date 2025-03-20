@@ -13,7 +13,6 @@ class Solution:
         while cur:
             if target==cur.val:
                 return cur.val
-
             if abs(closest-target)>abs(cur.val-target):
                 closest = cur.val
             elif abs(closest-target)==abs(cur.val-target):
