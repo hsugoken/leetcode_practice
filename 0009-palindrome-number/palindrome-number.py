@@ -1,5 +1,9 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
+        # Edge cases: 
+        # 1. Negative numbers can't be palindromes due to the minus sign
+        # 2. Numbers ending with 0 can't be palindromes unless the number is 0 itself
+        #    (since no integer can start with leading zeros)
         if x<0 or (x%10==0 and x!=0):
             return False
         rev = 0
