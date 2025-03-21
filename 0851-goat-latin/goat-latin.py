@@ -1,21 +1,22 @@
 class Solution:
     def toGoatLatin(self, sentence: str) -> str:
-        #beings with vowel append ma to end of the word => apple - applema
-        # consonant =>goat => oatgma
-        # I speak Goat Latin
-        # Imaa peaksma|aa oatgma|aaa atinLmaaaa
-        vowel = ['a', 'e', 'i', 'o','u', 'A', 'E','I', 'O','U']
-
+        #consonants will have first character moved to the end
+        #then add ma to its end
+        #then add 'a' based on index of word in the sentence
+        vowels = ['a','e','i','o','u', 'A','E','I','O','U']
         sentence = sentence.split()
-
-        for i,word in enumerate(sentence):
-            cur_char = word[0]
-            if cur_char in vowel:
-                temp = word + "ma"
+        # res = ""
+        print(sentence)
+        for i in range(len(sentence)):
+            res = ""
+            cur_word = sentence[i]
+            if cur_word[0] not in vowels:
+                res += cur_word[1:] + cur_word[0]
             else:
-                temp = word[1:] + word[0] + 'ma'
-            
-            temp += "a"*(i+1)
-
-            sentence[i] = temp
+                res += cur_word
+            res += "ma"
+            res += "a"*(i+1)
+            sentence[i] = res
+        
         return ' '.join(sentence)
+
