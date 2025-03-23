@@ -8,8 +8,9 @@ class Solution:
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return None
+            
         q = deque([root])
-        null_seen=False
+        null_seen = False
         while q:
             node = q.popleft()
             if node:
@@ -20,4 +21,5 @@ class Solution:
                 while q:
                     if q.popleft():
                         return False
+        
         return True
