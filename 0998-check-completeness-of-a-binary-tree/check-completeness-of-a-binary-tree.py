@@ -8,16 +8,16 @@ class Solution:
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return None
-            
+
         q = deque([root])
-        null_seen = False
+        #null_seen = False
         while q:
             node = q.popleft()
             if node:
                 q.append(node.left)
                 q.append(node.right)
             else:
-                null_seen = True
+                #null_seen = True
                 while q:
                     if q.popleft():
                         return False
