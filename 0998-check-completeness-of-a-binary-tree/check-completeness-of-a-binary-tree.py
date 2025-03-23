@@ -9,22 +9,15 @@ class Solution:
         if not root:
             return None
         q = deque([root])
-        null_seen = False
-        #we basically go through the queue and then
-        #check if it is a valid node
+        null_seen=False
         while q:
             node = q.popleft()
             if node:
                 q.append(node.left)
                 q.append(node.right)
-            #if null node is seen
             else:
                 null_seen = True
-                #we start a new BFS
                 while q:
-                    #we pop the remaininig elements in q
-                    #and if it is not none then our BT is not complete
                     if q.popleft():
                         return False
-        
         return True
