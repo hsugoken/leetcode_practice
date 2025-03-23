@@ -48,3 +48,6 @@ class Solution:
         #reverse to get correct topological order and joing into a string
         res.reverse()
         return "".join(res)
+#so this visit basically is False for the terminal nodes and then we visit from another node to terminal
+#we get back false so visit basically sets nodes as False for terminal nodes and then we move backwards like that
+
