@@ -36,4 +36,6 @@ class Solution:
                 indegree[nei] -= 1
                 if indegree[nei]==0:
                     queue.append(nei)
+        #whenever we have a cycle the node where the cycle comes in will never have its indegree=0
+        #so it will not be processed
         return len(visit)==numCourses
