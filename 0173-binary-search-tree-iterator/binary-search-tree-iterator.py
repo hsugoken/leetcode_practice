@@ -19,8 +19,6 @@ class BSTIterator:
         return self.stack!=[]
     
     def _dfs(self, node):
-        # cur = node
-        #while cur or self.stack:
         while node:
             self.stack.append(node)
             node = node.left
