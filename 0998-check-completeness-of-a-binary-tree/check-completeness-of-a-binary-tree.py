@@ -26,5 +26,5 @@ class Solution:
                     #and if it is not none then our BT is not complete
                     if q.popleft():
                         return False
-        #    
+        
         return True
