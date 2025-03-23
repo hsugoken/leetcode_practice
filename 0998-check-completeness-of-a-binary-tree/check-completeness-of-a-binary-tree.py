@@ -11,7 +11,7 @@ class Solution:
         q = deque([root])
         null_seen = False
         #we basically go through the queue and then
-        #check if it is a valdi node
+        #check if it is a valid node
         while q:
             node = q.popleft()
             if node:
@@ -26,5 +26,5 @@ class Solution:
                     #and if it is not none then our BT is not complete
                     if q.popleft():
                         return False
-        
+        #    
         return True
