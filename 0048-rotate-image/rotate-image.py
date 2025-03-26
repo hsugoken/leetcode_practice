@@ -1,28 +1,40 @@
-class Solution:
-    def rotate(self, matrix: List[List[int]]) -> None:
+"""
+     L       R
+T    0  0 0  0
+     0 |0 0| 0
+     0 |0 0| 0
+B    0  0 0  0
+The bars will be the second iteration
+L=0, R=3 (R-L)=3
+
+"""
+class Solution(object):
+    def rotate(self, matrix):
         """
-        Do not return anything, modify matrix in-place instead.
+        :type matrix: List[List[int]]
+        :rtype: None Do not return anything, modify matrix in-place instead.
         """
-        #   L   R
-        #T#[1 2 3]    #[7 4 1]
-        # #[4 5 6] => #[8 5 2]
-        #B#[7 8 9]    #[9 6 3]
         l = 0
-        r = len(matrix[0])-1
+        r = len(matrix)-1
         while l<r:
+            
             for i in range(r-l):
-                #print(i)
+                #this only works for one outer layer, it is not doing this for all inner
+                #layers as it is not moving inwards
+                #to move inwards we have to add i
+                
                 top, bottom = l, r
-                topleft = matrix[top][l+i]
-                #move to top left from bottom left
+                #store top left
+                top_left = matrix[top][l+i]
+                #move bottom left to top left
                 matrix[top][l+i] = matrix[bottom-i][l]
-                #move to bottom left from bottom right
+                #move bottom right to bottom left
                 matrix[bottom-i][l] = matrix[bottom][r-i]
-                #move to bottom right from top right
+                #move top right to bottom right
                 matrix[bottom][r-i] = matrix[top+i][r]
-                #move to top right from top left
-                matrix[top+i][r] = topleft
-        
-            l+=1
-            r-=1
-        
+                #move matrix top left to matrix top right
+                matrix[top+i][r] = top_left
+            l += 1
+            r -= 1
+        return
+
