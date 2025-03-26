@@ -1,14 +1,29 @@
-class Solution:
-    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        #we will store the index and the number 
-        #then we iterate through the list
-        #if current number already exists in hashmap
-        #then we check if the distance between the index value
-        #is valid or not
-        found = {} #num:index
-        for i,num in enumerate(nums):
-            if num in found and (i-found[num])<=k:
-                return True
-            found[num] = i
-        return False
+"""
+1) keep hash_map to update the location of an index
+2) when we iterate through the array, 
+    a) if nums[i] in hash_map we check if it satisfies abs(i-j)<=k: return True
+    b) else previous index is of no use so we just remove it and update
+    the current index
+3) return False if we reach end
 
+"""
+
+# indices: [0,1,2,3,4,5]
+# nums:    [1,2,3,1,2,3] k=2
+#                     ^
+# hash_map = {1:0, 2:1,3:2} (4-1)<=2 F
+
+
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        hash_map = {}
+        for i in range(len(nums)):
+            if nums[i] in hash_map and (i-hash_map[nums[i]])<=k:
+                    return True
+            hash_map[nums[i]] = i
+        return False
