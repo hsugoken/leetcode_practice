@@ -1,19 +1,36 @@
-class Solution:
-    def trap(self, height: List[int]) -> int:
-        #               R
-        #[0,1,0,2,1,0,1,3]
-        #             L
-        maxL = float('-inf') #maxL=2
-        maxR = float('-inf') #maxR=3
-        water = 0#5 ex
-        left, right = 0, len(height)-1 #0,7
-        while left<right:
-            if height[left]<height[right]:#0<3
-                maxL = max(height[left], maxL)#2
-                water += maxL-height[left] #2-0=2
-                left += 1
+"""
+# We cannot have any water stored on the end points
+# We will move the pointer that has the smaller max value and shift
+#Here at position i => (min(max_left, max_right)-h[i]) determines water trapping
+#The minimum value will be the limiting factor
+max_left => max height on left
+max_right => max height on right
+
+
+               *
+[0,1,0,2,1,0,1,3,2,1,2,1]
+               ^
+water = 1+1+2+1+1
+max_left = 2
+max_right = 2
+"""
+class Solution(object):
+    def trap(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        max_left = max_right = float('-inf')
+        total_water = 0
+        l, r = 0, len(height)-1
+        while l<=r:
+            #we focus on the pointer that is at a smaller height
+            if height[l]<height[r]:
+                max_left = max(height[l], max_left)
+                total_water += (max_left-height[l])
+                l += 1
             else:
-                maxR = max(height[right], maxR)
-                water += maxR-height[right]
-                right -= 1
-        return water
+                max_right = max(height[r], max_right)
+                total_water += (max_right-height[r])
+                r -= 1
+        return total_water
