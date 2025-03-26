@@ -1,3 +1,6 @@
+#layer approach
+#Rotate the matrix one layer at a time, from outer to inner
+#For each layer, rotate elements in groups of 4 (corners, then next elements, etc.)
 """
      L       R
 T    0  0 0  0
